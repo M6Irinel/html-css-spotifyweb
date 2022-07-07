@@ -393,10 +393,16 @@ main .bar_top a:hover {
     --content-margin: 25px;
 }
 
-.zone h2 {
+.zone .h2 {
     color: var(--header-color-title);
     font-size: var(--content-font_size-title);
     margin: var(--content-margin) 0;
+    display: block;
+    font-weight: bold;
+}
+
+.zone .h2:hover {
+    text-decoration: underline;
 }
 
 .zone ul {
@@ -466,6 +472,7 @@ main .bar_top a:hover {
 /* HOVER ZONE */
 .zone li figure {
     position: relative;
+    cursor: pointer;
 }
 
 .zone li figure .cover_play {
@@ -537,9 +544,13 @@ aside {
     font-size: 12px;
 }
 
-.song .info .texts p {
+.song .info .texts a {
     color: var(--color-default_link);
     font-size: 12px;
+}
+
+.song .info .texts a:hover {
+    text-decoration: underline;
 }
 
 .song .icons {gap: 13px;}
