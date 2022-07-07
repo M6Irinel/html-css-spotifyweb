@@ -88,34 +88,173 @@
             </div>
 
             <div class="content">
+                <!-- NAV BAR -->
                 <nav>
                     <ul class="flex">
                         <li>
-                            <input type="radio" name="nav_main" id="evidenza">
-                            <label for="evidenza" class="active" href="#">in evidenza</label>
+                            <input type="radio" name="nav_main" id="evidenza" checked>
+                            <label for="evidenza" class="active">in evidenza</label>
                         </li>
+
                         <li>
                             <input type="radio" name="nav_main" id="podcast">
-                            <label for="podcast" href="#">podcast</label>
+                            <label for="podcast">podcast</label>
                         </li>
+
                         <li>
                             <input type="radio" name="nav_main" id="classifiche">
-                            <label for="classifiche" href="#">classifiche</label>
+                            <label for="classifiche">classifiche</label>
                         </li>
+
                         <li>
                             <input type="radio" name="nav_main" id="generi">
-                            <label for="generi" href="#">generi e mood</label>
+                            <label for="generi">generi e mood</label>
                         </li>
+
                         <li>
                             <input type="radio" name="nav_main" id="nuove">
-                            <label for="nuove" href="#">nuove uscite</label>
+                            <label for="nuove">nuove uscite</label>
                         </li>
+
                         <li>
                             <input type="radio" name="nav_main" id="scopri">
-                            <label for="scopri" href="#">scopri</label>
+                            <label for="scopri">scopri</label>
                         </li>
                     </ul>
                 </nav>
+
+                <div class="zone">
+                    <h2>Recently played</h2>
+                    <ul class="flex">
+                        <li>
+                            <figure>
+                                <div class="cover_play">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <img src="img/metal_lifting.jpg" alt="">
+                            </figure>
+                            <h3>Heavy Metal</h3>
+                            <h4>Subtitle</h4>
+                        </li>
+    
+                        <li>
+                            <figure>
+                                <div class="cover_play">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <img src="img/stranger.jpeg" alt="">
+                            </figure>
+                            <h3>Stranger Things, Vol. 1(a Netflix Original Series Soundtrack)</h3>
+                            <h4>Kyle Dixon & Michael Stein</h4>
+                        </li>
+    
+                        <li>
+                            <figure>
+                                <div class="cover_play">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <img src="img/aquietplace.jpeg" alt="">
+                            </figure>
+                            <h3>A quiet place</h3>
+                            <h4>Subtitle</h4>
+                        </li>
+    
+                        <li>
+                            <figure>
+                                <div class="cover_play">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <img src="img/split.jpeg" alt="">
+                            </figure>
+                            <h3>Split</h3>
+                            <h4>Subtitle</h4>
+                        </li>
+    
+                        <li>
+                            <figure>
+                                <div class="cover_play">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <img src="img/cure.jpeg" alt="">
+                            </figure>
+                            <h3>A cure for weliness</h3>
+                            <h4>Subtitle</h4>
+                        </li>
+    
+                        <li>
+                            <figure>
+                                <div class="cover_play">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <img src="img/sinister.jpeg" alt="">
+                            </figure>
+                            <h3>Sinister</h3>
+                            <h4>Subtitle</h4>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Create for ... -->
+                <div class="zone">
+                    <h2>Creato per John Doe</h2>
+                    <p>Più ascolti, più accurati saranno i suggerimenti.</p>
+                    <ul class="flex">
+                        <li>
+                            <figure>
+                                <div class="cover_play">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <img src="img/radar.jpeg" alt="radar">
+                            </figure>
+                            <h3>Release Radar</h3>
+                        </li>
+
+                        <li>
+                            <figure>
+                                <div class="cover_play">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <img src="img/mixdaily.jpeg" alt="mixdaily">
+                            </figure>
+                            <h3>Daily Mix 1</h3>
+                        </li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+
+                <!-- ARTISTI PU POPOLARI -->
+                <div class="zone artist">
+                    <h2>Artisti più popolari</h2>
+                    <p>Più ascolti, più accurati saranno i suggerimenti.</p>
+                    <ul class="flex">
+                        <li>
+                            <figure>
+                                <div class="cover_play">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <img src="img/youg.jpeg" alt="youg">
+                            </figure>
+                            <h3>Lana del Rey</h3>
+                        </li>
+
+                        <li>
+                            <figure>
+                                <div class="cover_play">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <img src="img/einaudi.jpeg" alt="einaudi">
+                            </figure>
+                            <h3>Ludovico Einaudi</h3>
+                        </li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
             </div>
         </main>
     </div>
@@ -128,11 +267,13 @@
                 <div class="img">
                     <img src="img/sinister.jpeg" alt="sinister">
                 </div>
+
                 <div class="texts">
                     <h3 class="name">Sinister</h3>
                     <p class="info_name">Brano Nome</p>
                 </div>
             </div>
+
             <div class="icons flex">
                 <a href="#"><i class="fa-regular fa-heart"></i></a>
                 <a href="#"><i class="fa-regular fa-folder"></i></a>
