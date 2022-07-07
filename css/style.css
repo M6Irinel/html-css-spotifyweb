@@ -64,6 +64,7 @@ aside {
     flex-basis: 90px;
     flex-shrink: 0;
     background-color: var(--aside-color-bg);
+    z-index: 100;
 }
 
 :root {
