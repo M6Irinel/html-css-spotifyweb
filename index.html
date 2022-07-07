@@ -20,74 +20,69 @@
 </head>
 
 <body class="flex">
-    <main class="flex">
+    <div class="container flex">
         <header class="flex">
-
-            <div>
-                <!-- LOGO HEADER -->
-                <div class="logo" href="#">
-                    <img class="img_normal" src="img/logo.svg" alt="logo spotify">
-                    <img class="img_small" src="img/logo-small.svg" alt="logo soptify small">
-                </div>
-
-                <!-- HOME HEADER -->
-                <ul class="home">
-                    <li>
-                        <a class="home_i" href="#">
-                            <i class="fa-solid fa-house"></i>
-                            <p>Home</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="mag_glass_i" href="#">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <p>Cerca</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="library_i" href="#">
-                            <div class="icons flex">
-                                <i class="fa-solid fa-grip-lines-vertical"></i>
-                                <i class="fa-solid fa-grip-lines-vertical"></i>
-                            </div>
-                            <p>La tua libreria</p>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- PLAYLIST HEADER -->
-                <div class="playlist">
-                    <h2>playlist</h2>
-                    <a class="plus flex" href="#">
-                        <i class="flex fa-solid fa-plus"></i>Crea Playlist
-                    </a>
-                    <ul>
-                        <li><a href="#">Nome Playlist</a></li>
-                        <li><a href="#">Nome Playlist</a></li>
-                        <li><a href="#">Nome Playlist</a></li>
-                        <li><a href="#">Nome Playlist</a></li>
-                        <li><a href="#">Nome Playlist</a></li>
-                        <li><a href="#">Nome Playlist</a></li>
-                        <li><a href="#">Nome Playlist</a></li>
-                    </ul>
-                </div>
+            <!-- LOGO -->
+            <div class="logo flex">
+                <img class="large" src="img/logo.svg" alt="logo large">
+                <img class="small" src="img/logo-small.svg" alt="logo small">
             </div>
 
-            <!-- PROFILE HEADER -->
-            <div class="profile flex">
-                <a class="install_app flex" href="#">
-                    <i class="fa-solid fa-circle-arrow-down"></i>
-                    <p>Installa app</p>
+            <!-- COMMANDS NAV HOME -->
+            <nav>
+                <a class="but_home" href="#">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
                 </a>
-                <div class="user flex">
-                    <i class="fa-solid fa-circle-user"></i>
-                    <p>John Doe</p>
-                </div>
+
+                <a href="#">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Cerca</span>
+                </a>
+
+                <a class="library" href="#">
+                    <i class="fa-solid fa-lines-leaning"></i>
+                    <span>La tua libreria</span>
+                </a>
+            </nav>
+
+            <!-- PLAYLIST -->
+            <div class="playlist">
+                <!-- TITLE SECTION PLAYLIST -->
+                <h3>playlist</h3>
+
+                <!-- BUTTON CREATE PLAYLIST -->
+                <button class="flex">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Crea Playlist</span>
+                </button>
+
+                <!-- NEW PLAYLIST -->
+                <ul>
+                    <li><a href="#">Nome Playlist</a></li>
+                    <li><a href="#">Nome Playlist</a></li>
+                    <li><a href="#">Nome Playlist</a></li>
+                    <li><a href="#">Nome Playlist</a></li>
+                    <li><a href="#">Nome Playlist</a></li>
+                    <li><a href="#">Nome Playlist</a></li>
+                    <li><a href="#">Nome Playlist</a></li>
+                </ul>
             </div>
 
+            <!-- FOOTER HEADER -->
+            <div class="footer flex">
+                <a class="install" href="#">
+                    <i class="fa-solid fa-circle-arrow-down"></i>
+                    <span>Installa app</span>
+                </a>
+                <div class="user">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span>John Doe</span>
+                </div>
+            </div>
         </header>
 
-        <div class="container_main flex">
+        <main class="flex">
             <div class="bar_top">
 
             </div>
@@ -95,8 +90,8 @@
             <div class="content">
 
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <aside>
 
