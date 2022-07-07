@@ -41,12 +41,6 @@ main {
     flex-direction: column;
 }
 
-.bar_top {
-    flex-basis: 90px;
-    flex-shrink: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
 .content {
     flex-grow: 1;
 }
@@ -276,6 +270,49 @@ header .footer .user i {
     .logo .large, nav span, .playlist, .footer span {display: none};
 }
 
+/* MAIN =========================================*/
+
+main {
+    overflow: auto;
+    /* position: relative; */
+}
+
+.bar_top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 230px;
+    height: 90px;
+    z-index: 10;
+    background-color: #00000080;
+}
+
+main .bar_top a {
+    border: 1px solid var(--header-color-title);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 218px;
+    height: 40px;
+    border-radius: 20px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: transform var(--header-transition-time);
+}
+
+main .bar_top a:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 555px) {
+    .bar_top {
+        left: 66px;
+    }
+}
+
 /* ASIDE ========================================= */
 
 :root {
@@ -331,6 +368,7 @@ aside {
 
 .song .icons a {
     color: var(--color-default_link);
+    transition: color var(--header-transition-time);
 }
 
 /* HOVER */
