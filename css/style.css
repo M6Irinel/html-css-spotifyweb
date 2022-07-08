@@ -34,6 +34,8 @@ header {
     flex-shrink: 0;
     background-color: var(--header-color-bg);
     flex-direction: column;
+    overflow-y: scroll;
+
 }
 
 main {
