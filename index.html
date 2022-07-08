@@ -6,11 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" sizes="32x32" type="image/png"
-        href="https://open.spotifycdn.com/cdn/images/favicon32.8e66b099.png">
-    <link rel="icon" sizes="16x16" type="image/png"
-        href="https://open.spotifycdn.com/cdn/images/favicon16.c498a969.png">
-    <link rel="icon" href="https://open.spotifycdn.com/cdn/images/favicon.5cb2bd30.ico">
+    <link rel="icon" sizes="32x32" type="image/png" href="img/favicon.ico">
 
     <script src="https://kit.fontawesome.com/09495c5fdc.js" crossorigin="anonymous"></script>
 
@@ -20,6 +16,10 @@
 </head>
 
 <body class="flex">
+    <input type="radio" name="nav" id="home" checked>
+    <input type="radio" name="nav" id="search">
+    <input type="radio" name="nav" id="library">
+
     <div class="container flex">
         <header class="flex">
             <!-- LOGO -->
@@ -27,23 +27,23 @@
                 <img class="large" src="img/logo.svg" alt="logo large">
                 <img class="small" src="img/logo-small.svg" alt="logo small">
             </div>
-
+            
             <!-- COMMANDS NAV HOME -->
             <nav>
-                <a class="but_home" href="#">
-                    <i class="fa-solid fa-house"></i>
+                <label class="but_home" for="home">
+                    <img src="img/home.svg" alt="home">
                     <span>Home</span>
-                </a>
-
-                <a href="#">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                
+                <label class="but_search" for="search">
+                    <img src="img/search.svg" alt="search">
                     <span>Cerca</span>
-                </a>
-
-                <a class="library" href="#">
-                    <i class="fa-solid fa-lines-leaning"></i>
+                </label>
+                
+                <label class="library" for="library">
+                    <img src="img/libreria.svg" alt="libreria">
                     <span>La tua libreria</span>
-                </a>
+                </label>
             </nav>
 
             <!-- PLAYLIST -->
@@ -83,7 +83,13 @@
         </header>
 
         <main>
-            <div class="bar_top">
+            <div class="bar_top flex">
+                <div class="search_bar flex">
+                    <div class="img_search">
+                        <img src="img/search.svg" alt="search">
+                    </div>
+                    <input type="text" placeholder="Artisti, brani o podcast">
+                </div>
                 <a href="#">effettua l'upgrade</a>
             </div>
 
@@ -136,7 +142,7 @@
                             <h3>Heavy Metal</h3>
                             <h4>Subtitle</h4>
                         </li>
-    
+
                         <li>
                             <figure>
                                 <div class="cover_play">
@@ -147,7 +153,7 @@
                             <h3>Stranger Things, Vol. 1(a Netflix Original Series Soundtrack)</h3>
                             <h4>Kyle Dixon & Michael Stein</h4>
                         </li>
-    
+
                         <li>
                             <figure>
                                 <div class="cover_play">
@@ -158,7 +164,7 @@
                             <h3>A quiet place</h3>
                             <h4>Subtitle</h4>
                         </li>
-    
+
                         <li>
                             <figure>
                                 <div class="cover_play">
@@ -169,7 +175,7 @@
                             <h3>Split</h3>
                             <h4>Subtitle</h4>
                         </li>
-    
+
                         <li>
                             <figure>
                                 <div class="cover_play">
@@ -180,7 +186,7 @@
                             <h3>A cure for weliness</h3>
                             <h4>Subtitle</h4>
                         </li>
-    
+
                         <li>
                             <figure>
                                 <div class="cover_play">
@@ -275,25 +281,37 @@
             </div>
 
             <div class="icons flex">
-                <a href="#"><i class="fa-regular fa-heart"></i></a>
+                <input type="checkbox" id="heart">
+                <label for="heart">
+                    <i class="fa-regular fa-heart"></i></i>
+                    <i class="fa-solid fa-heart"></i>
+                </label>
                 <a href="#"><i class="fa-regular fa-folder"></i></a>
             </div>
         </div>
 
         <!-- PLAYER -->
         <div class="player flex">
+            <input type="checkbox" id="stop">
             <div class="top flex">
                 <i class="fa-solid fa-shuffle"></i>
-                <i class="fa-solid fa-caret-left"></i>
-                <i class="fa-regular fa-circle-play"></i>
-                <i class="fa-solid fa-caret-right"></i>
+                <i class="fa-solid fa-backward-step"></i>
+                <label for="stop">
+                    <i class="fa-regular fa-circle-play"></i>
+                    <i class="fa-regular fa-circle-pause"></i>
+                </label>
+                <i class="fa-solid fa-forward-step"></i>
                 <i class="fa-solid fa-arrow-rotate-right"></i>
             </div>
 
             <div class="bottom flex">
                 <span>0:25</span>
                 <div class="input">
-                    <input type="range" min="0" max="4.35" step="0.01">
+                    <div class="tracker">
+                        <div class="range">
+                            <div class="thumb"></div>
+                        </div>
+                    </div>
                 </div>
                 <span>4.35</span>
             </div>
@@ -305,7 +323,11 @@
             <button><i class="fa-solid fa-display"></i></button>
             <button><i class="fa-solid fa-volume-high"></i></button>
             <div class="vol">
-                <input type="range" min="0" max="10" step="1" value="4">
+                <div class="tracker">
+                    <div class="range">
+                        <div class="thumb"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </aside>

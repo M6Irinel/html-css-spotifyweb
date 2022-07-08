@@ -1,7 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +11,8 @@
 ul, ol, menu {list-style: none;}
 
 a {text-decoration: none; color: white;}
+
+img {max-width: 100%;}
 
 .flex {display: flex;}
 
@@ -108,11 +109,17 @@ aside {
 }
 
 /* NAV ______________________________*/
-nav {
+
+/* INPUT FOR NAV LABEL */
+body input[name="nav"] {
+    display: none;
+}
+
+header nav {
     padding: 0 var(--header-padding-horizontal);
 }
 
-nav a {
+header nav label {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -120,25 +127,32 @@ nav a {
     position: relative;
     color: var(--color-default_link);
     transition: color var(--header-transition-time);
+    cursor: pointer;
 }
 
-nav a i {
-    font-size: 1.2rem;
-    width: 1.4rem;
+header nav label img {
+    width: 1.2rem;
     aspect-ratio: 1;
     text-align: center;
+    filter: opacity(0.5);
+    transition: filter var(--header-transition-time);
 }
 
-nav .library i {
+header nav label:hover img {
+    filter: opacity(1);
+}
+
+header nav .library i {
     transform: rotateY(180deg);
 }
 
 /* HOVER ______________________________*/
-nav a:hover {
+header nav label:hover {
     color: var(--color-hover_link);
 }
 
-nav a.but_home::before {
+/* ACTIVER ______________________________*/
+body input[name="nav"]#home:checked ~ .container header nav label.but_home::before {
     content: '';
     display: block;
     background-color: var(--header-color-mini_bar);
@@ -149,8 +163,15 @@ nav a.but_home::before {
     left: calc(var(--header-padding-horizontal) * -1);
 }
 
-/* ACTIVER ______________________________*/
-nav a:active::before {
+body input[name="nav"]#home:checked ~ .container header nav label.but_home img {
+    filter: opacity(1);
+}
+
+body input[name="nav"]#home:checked ~ .container header nav label.but_home {
+    color: var(--color-hover_link);
+}
+
+body input[name="nav"]#search:checked ~ .container header nav label.but_search::before {
     content: '';
     display: block;
     background-color: var(--header-color-mini_bar);
@@ -159,6 +180,33 @@ nav a:active::before {
     position: absolute;
     top: 0;
     left: calc(var(--header-padding-horizontal) * -1);
+}
+
+body input[name="nav"]#search:checked ~ .container header nav label.but_search {
+    color: var(--color-hover_link);
+}
+
+body input[name="nav"]#search:checked ~ .container header nav label.but_search img {
+    filter: opacity(1);
+}
+
+body input[name="nav"]#library:checked ~ .container header nav label.library::before {
+    content: '';
+    display: block;
+    background-color: var(--header-color-mini_bar);
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: calc(var(--header-padding-horizontal) * -1);
+}
+
+body input[name="nav"]#library:checked ~ .container header nav label.library {
+    color: var(--color-hover_link);
+}
+
+body input[name="nav"]#library:checked ~ .container header nav label.library img {
+    filter: opacity(1);
 }
 
 /* PLAYLIST ______________________________*/
@@ -297,9 +345,57 @@ header .footer .user i {
     top: 0;
     right: 0;
     left: 230px;
-    height: 90px;
     z-index: 10;
     background-color: #00000080;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+}
+
+body input[name="nav"]#search:checked ~ .container main .bar_top .search_bar {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    max-width: 365px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #fff;
+    position: relative;
+    flex-basis: 25%;
+}
+
+body input[name="nav"]#search:not(:checked) ~ .container main .bar_top {
+    justify-content: flex-end;
+}
+
+body input[name="nav"]#search:not(:checked) ~ .container main .bar_top .search_bar {
+    display: none;
+}
+
+.bar_top .search_bar .img_search {
+    filter: invert(1);
+    width: 30px;
+    aspect-ratio: 1;
+    transform: translateY(2px);
+    margin-left: 10px;
+}
+
+.bar_top .search_bar input {
+    margin: 8px 16px 8px 0;
+    border: none;
+}
+
+.bar_top .search_bar input:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 380px) {
+    .bar_top .search_bar input {
+        margin: 8px 8px 8px 0;
+        border: none;
+    }
 }
 
 main .bar_top a {
@@ -310,9 +406,6 @@ main .bar_top a {
     width: 218px;
     height: 40px;
     border-radius: 20px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
     text-transform: uppercase;
     font-weight: bold;
     transition: transform var(--header-transition-time);
@@ -338,6 +431,12 @@ main .bar_top a:hover {
 
 .content {
     padding: 90px 20px 20px;
+}
+
+@media screen and (max-width: 745px) {
+    body input[name="nav"]#search:checked ~ .container main .content {
+        padding: 150px 20px 20px;
+    }
 }
 
 .content nav ul {
@@ -547,10 +646,13 @@ aside {
 .song .info .texts a {
     color: var(--color-default_link);
     font-size: 12px;
+    transition: color var(--header-transition-time);
+    display: block;
 }
 
 .song .info .texts a:hover {
     text-decoration: underline;
+    color: var(--color-hover_link);
 }
 
 .song .icons {gap: 13px;}
@@ -560,8 +662,39 @@ aside {
     transition: color var(--header-transition-time);
 }
 
+.song .icons #heart {
+    display: none;
+}
+
+.song .icons #heart:checked ~ label .fa-regular {
+    display: none;
+}
+
+.song .icons #heart:not(:checked) ~ label .fa-regular {
+    display: block;
+}
+
+.song .icons #heart:checked ~ label .fa-solid {
+    display: block;
+    color: red;
+}
+
+.song .icons #heart:not(:checked) ~ label .fa-solid {
+    display: none;
+}
+
+.song .icons label {
+    cursor: pointer;
+    color: var(--color-default_link);
+    transition: color var(--header-transition-time);
+}
+
 /* HOVER */
 .song .icons a:hover {
+    color: var(--color-hover_link);
+}
+
+.song .icons label:hover {
     color: var(--color-hover_link);
 }
 
@@ -580,6 +713,7 @@ aside {
     .song {
         flex-basis: 0;
         flex-grow: 1;
+        gap: 5px;
     }
 
     .song .texts .info_name {
@@ -628,10 +762,11 @@ aside {
 /* PLAYER */
 .player {
     padding: 8px;
-    flex-grow: 1;
     flex-direction: column;
     align-items: center;
     color: var(--color-hover_link);
+    flex-basis: 35%;
+    flex-shrink: 1;
 }
 
 .player .top {
@@ -645,13 +780,41 @@ aside {
     padding: 10px;
 }
 
-.player .top .fa-circle-play {
+.player .top label {
     font-size: 30px;
     transition: transform var(--header-transition-time);
 }
 
-.player .top .fa-circle-play:hover {
+.player .top label:hover {
     transform: scale(1.2);
+}
+
+.player > #stop {
+    display: none;
+}
+
+.player > #stop:checked ~ .top .fa-circle-pause {
+    display: block;
+}
+
+.player > #stop:not(:checked) ~ .top .fa-circle-pause {
+    display: none;
+}
+
+.player > #stop:not(:checked) ~ .top .fa-circle-play {
+    display: block;
+}
+
+.player > #stop:checked ~ .top .fa-circle-play {
+    display: none;
+}
+
+.player > #stop:checked ~ .bottom .range {
+    animation-play-state: paused;
+}
+
+.player > #stop:not(:checked) ~ .bottom .range {
+    animation-play-state: running;
 }
 
 .player .bottom {
@@ -672,15 +835,12 @@ aside {
 
 .player .bottom .input {
     flex-basis: calc(100% - (100% - 430px));
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.player .bottom .input input {
-    width: 100%;
-    cursor: pointer;
-}
-
-.player input[type="range"] {
-    -webkit-appearance: none;
+.player .bottom .tracker {
     height: 5px;
     background-color: var(--volume-color-default);
     border-radius: 2px;
@@ -689,13 +849,7 @@ aside {
     width: 100%;
 }
 
-.player input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-}
-
-.player input[type="range"]::before {
-    content: '';
-    display: block;
+.player .bottom .range {
     height: 100%;
     width: calc((100% / 4.35) * 0.25);
     background-color: #c1c1c1;
@@ -704,22 +858,12 @@ aside {
     left: 0;
     z-index: 0;
     border-radius: 2px;
-    animation: play_music calc(4.35 * 60s) linear forwards;
+    /* animation: play_music calc(4.35 * 60s) linear forwards; */
+    animation: play_music 30s linear forwards;
     transition: background-color var(--header-transition-time);
 }
 
-@keyframes play_music {
-    0% {
-        width: 0%;
-    }
-    100%{
-        width: 100%;
-    }
-}
-
-.player input[type="range"]::after {
-    content: '';
-    display: block;
+.player .bottom .thumb {
     filter: opacity(0);
     width: 15px;
     aspect-ratio: 1;
@@ -727,35 +871,32 @@ aside {
     background-color: #fff;
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 100%;
     transform: translate(-50%, -50%);
     z-index: 0;
-    animation: play_music_thumb calc(4.35 * 60s) linear forwards;
 }
 
-@keyframes play_music_thumb {
-    0% {
-        left: 0;
-    }
-    100% {
-        left: 100%;
-    }
-}
-
-.player input[type="range"]:hover:before {
+.player .bottom .input:hover .range {
     background-color: var(--header-color-mini_bar);
 }
 
-.player input[type="range"]:hover::after {
+.player .bottom .input:hover .thumb {
     filter: opacity(1);
+}
+
+@keyframes play_music {
+    0% {
+        width: 30%;
+    }
+    100%{
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 555px) {
     .player {
-        justify-content: space-between;
         padding: 10px 4px;
         flex-basis: 0;
-        flex-grow: 2;
     }
 
     .player .bottom {
@@ -788,12 +929,19 @@ aside {
 :root {
     --volume-color-default: #5a5a5a;
 }
+
 .volume {
     padding: 8px;
     align-items: center;
     justify-content: space-between;
     gap: 7px;
     overflow: hidden;
+}
+
+.volume .vol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .volume button {
@@ -803,14 +951,18 @@ aside {
     transition: color var(--header-transition-time);
     cursor: pointer;
     flex-shrink: 0;
+    flex-grow: 1;
 }
 
 .volume button:hover {
     color: var(--color-hover_link);
 }
 
-.volume input[type="range"] {
-    -webkit-appearance: none;
+.volume .vol {
+    flex-grow: 10;
+}
+
+.volume .vol .tracker {
     height: 5px;
     background-color: var(--volume-color-default);
     border-radius: 2px;
@@ -819,23 +971,7 @@ aside {
     width: 100%;
 }
 
-.volume input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-}
-
-.volume input[type="range"]:hover::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 15px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
-    position: relative;
-    z-index: 1;
-}
-
-.volume input[type="range"]::before {
-    content: '';
-    display: block;
+.volume .vol .range {
     height: 100%;
     width: calc((100% / 10) * 4);
     background-color: #c1c1c1;
@@ -847,14 +983,35 @@ aside {
     transition: background-color var(--header-transition-time);
 }
 
-.volume input[type="range"]:hover:before {
+.volume .vol .thumb {
+    filter: opacity(0);
+    width: 15px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.volume .vol:hover .range {
     background-color: var(--header-color-mini_bar);
+}
+
+.volume .vol:hover .thumb {
+    filter: opacity(1);
 }
 
 @media screen and (max-width: 555px){
     .volume {
         flex-basis: 0;
         flex-grow: 1;
+    }
+
+    .volume button {
+        flex-grow: 0;
     }
 }
 
