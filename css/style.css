@@ -34,8 +34,7 @@ header {
     flex-shrink: 0;
     background-color: var(--header-color-bg);
     flex-direction: column;
-    overflow-y: scroll;
-
+    overflow-y: auto;
 }
 
 main {
@@ -45,19 +44,19 @@ main {
 
 .content {
     flex-grow: 1;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
 }
 
-.content::-webkit-scrollbar {
+.content::-webkit-scrollbar, header::-webkit-scrollbar {
     width: 15px;
 }
 
-.content::-webkit-scrollbar-track {
+.content::-webkit-scrollbar-track, header::-webkit-scrollbar-track {
     background-color: #f9f9f9;
 }
 
-.content::-webkit-scrollbar-thumb {
+.content::-webkit-scrollbar-thumb, header::-webkit-scrollbar-thumb {
     background-color: #c8c8c8;
     border-radius: calc(15px / 2);
     border: 3px solid #f9f9f9;
