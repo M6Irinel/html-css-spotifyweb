@@ -48,18 +48,32 @@ main {
     height: 100%;
 }
 
-.content::-webkit-scrollbar, header::-webkit-scrollbar {
+.content::-webkit-scrollbar {
     width: 15px;
 }
 
-.content::-webkit-scrollbar-track, header::-webkit-scrollbar-track {
+.content::-webkit-scrollbar-track {
     background-color: #f9f9f9;
 }
 
-.content::-webkit-scrollbar-thumb, header::-webkit-scrollbar-thumb {
+.content::-webkit-scrollbar-thumb {
     background-color: #c8c8c8;
     border-radius: calc(15px / 2);
     border: 3px solid #f9f9f9;
+}
+
+header::-webkit-scrollbar {
+    width: 15px;
+}
+
+header::-webkit-scrollbar-track {
+    background-color: #000;
+}
+
+header::-webkit-scrollbar-thumb {
+    background-color: #c8c8c8;
+    border-radius: calc(15px / 2);
+    border: 5px solid #000;
 }
 
 aside {
@@ -255,6 +269,34 @@ body input[name="nav"]#library:checked ~ .container header nav label.library img
     transition: background-color var(--header-transition-time);
 }
 
+.playlist {
+    display: contents;
+}
+
+.playlist .header_playlist {
+    padding: 0 var(--header-padding-horizontal);
+}
+
+.playlist ul {
+    overflow-y: auto;
+    min-height: 80px;
+    padding: 0 var(--header-padding-horizontal);
+}
+
+.playlist ul::-webkit-scrollbar {
+    width: 15px;
+}
+
+.playlist ul::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
+.playlist ul::-webkit-scrollbar-thumb {
+    background-color: #c8c8c8;
+    border-radius: calc(15px / 2);
+    border: 5px solid #000;
+}
+
 .playlist ul a {
     position: relative;
     color: var(--color-default_link);
@@ -285,6 +327,7 @@ header .footer {
     padding: 0 var(--header-padding-horizontal);
     flex-direction: column;
     gap: 5px;
+    margin-top: auto;
 }
 
 header .footer .install, header .footer .user {
